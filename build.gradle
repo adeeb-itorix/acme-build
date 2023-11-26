@@ -111,14 +111,14 @@ task deployProxy(type:JavaExec) {
 	main = 'com.cloud5.UploadAndDeploy'
     workingDir = baseDir + Name
     classpath = configurations.scheduleRuntime
-    args(app_host, app_port + '/itorix', app_username, app_password, app_workspaceId, System.getProperty('user.dir') + File.separator + baseDir + Name + '.zip',  Name, org, env, username, password, isSaaS, projectName)
+    args(app_host, app_port + '/itorix', app_username, app_password, app_workspaceId, System.getProperty('user.dir') + File.separator + baseDir + Name + '.zip',  Name, org, env, username, password, isSaaS, projectName, gwType)
 }
 
 task retrieveCurrentProxyVersion(type: JavaExec) {
 	main = 'com.cloud5.ProxyVersion'
     workingDir = baseDir + Name
     classpath = configurations.scheduleRuntime
-    args(app_host, app_port + '/itorix', app_username, app_password, app_workspaceId, Name, org, env, username, password, System.getProperty('user.dir'), isSaaS, projectName)
+    args(app_host, app_port + '/itorix', app_username, app_password, app_workspaceId, Name, org, env, username, password, System.getProperty('user.dir'), isSaaS, projectName, gwType)
 }
 
 task executeUnitTestCases(type: JavaExec) {
